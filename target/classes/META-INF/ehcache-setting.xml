@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+    <!-- <diskStore path="java.io.tmpdir/whbcache/"/>-->
+    <!--	<cacheManagerPeerProviderFactory
+                class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"
+                properties="
+                port=40003,
+                socketTimeoutMillis=12000,
+                peerDiscovery=manual,
+                rmiUrls=//172.19.150.155:40003/com.jeecms.cms.entity.main.ContentCount|rmiUrls=//172.19.150.156:40003/com.jeecms.cms.entity.main.ContentCount"
+        />
+
+        <cacheManagerPeerListenerFactory
+            class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"
+            properties="hostName=192.168.1.101, port=40003,
+        socketTimeoutMillis=2000" />-->
+
+
+<!--    <cacheManagerPeerProviderFactory
+            class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"
+            properties="peerDiscovery=automatic, multicastGroupAddress=230.0.0.1,multicastGroupPort=4446, timeToLive=32"/>
+    <cacheManagerPeerListenerFactory
+            class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"
+            properties="hostName=localhost,port=40001" />-->
+
+
+
+    <defaultCache maxElementsInMemory="10000" eternal="false" timeToIdleSeconds="0" timeToLiveSeconds="0"
+                  overflowToDisk="true" diskSpoolBufferSizeMB="300" maxElementsOnDisk="0"
+                  diskPersistent="true" diskExpiryThreadIntervalSeconds="120">
+    </defaultCache>
+
+    <cache name="cn.whb.java.entity.ContentCount" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="7200" overflowToDisk="true">
+
+    </cache>
+
+    <cache name="cn.whb.java.entity.Content" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="7200" overflowToDisk="true"/>
+
+    <cache name="cn.whb.java.entity.CmsConfig" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="7200" overflowToDisk="true"/>
+
+    <cache name="cn.whb.java.entity.CmsConfigItem" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="7200" overflowToDisk="true"/>
+
+</ehcache>

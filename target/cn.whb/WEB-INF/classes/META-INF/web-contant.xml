@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean id="thirdKey" class="java.util.HashMap">
+    <constructor-arg>
+        <map>
+            <entry key="app">
+                <value>1</value>
+            </entry>
+            <entry key="pc">
+                <value>1</value>
+            </entry>
+            <entry key="appShare">
+                <value>1</value>
+            </entry>
+            <entry key="jinri">
+                <value>0</value>
+            </entry>
+            <entry key="uc">
+                <value>1</value>
+            </entry>
+            <entry key="zaker">
+                <value>1</value>
+            </entry>
+            <entry key="yidian">
+                <value>1</value>
+            </entry>
+        </map>
+    </constructor-arg>
+</bean>
+<bean id="toolsUtils" class="cn.whb.java.util.MyConstantUtils">
+<constructor-arg>
+    <value>开始初始化工具类对象</value>
+</constructor-arg>
+<!--     将常量注入单例对象中       -->
+<property name="currTypes">
+    <ref bean="thirdKey"/>
+</property>
+</bean>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd"
+       default-lazy-init="true" >
+
+<bean id="cacheManager" class="cn.whb.java.ehcache.WebEhCacheManagerFacotryBean">
+        <property name="cacheManagerName" value="cacheManager"/>
+        <property name="configLocation">
+            <value>classpath:/META-INF/ehcache-setting.xml</value>
+        </property>
+        <property name="diskStoreLocation">
+            <value>/WEB-INF/cache</value>
+        </property>
+    </bean>
+
+    <!--文章查询时间缓存-->
+    <bean id="ehContentQueryFreshTimeCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager">
+            <ref bean="cacheManager"/>
+        </property>
+        <property name="cacheName">
+            <value>cn.whb.entity.front.ContentQueryFreshTime</value>
+        </property>
+        <property name="timeToLiveSeconds">
+            <value>0</value>
+        </property>
+        <property name="timeToIdleSeconds">
+            <value>0</value>
+        </property>
+
+        <qualifier value="contentQueryFreshTime"/>
+    </bean>
+
+
+    <!--内容计数缓存-->
+    <bean id="ehContentCountCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager">
+            <ref bean="cacheManager"/>
+        </property>
+        <property name="cacheName">
+            <value>cn.whb.entity.front.ContentCount</value>
+        </property>
+        <property name="timeToLiveSeconds">
+            <value>0</value>
+        </property>
+        <property name="timeToIdleSeconds">
+            <value>0</value>
+        </property>
+        <qualifier value="contentCount"/>
+    </bean>
+
+</beans>

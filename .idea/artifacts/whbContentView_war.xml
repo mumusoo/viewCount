@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="whbContentView:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="cn.whb.war">
+      <element id="artifact" artifact-name="whbContentView:war exploded" />
+    </root>
+  </artifact>
+</component>
